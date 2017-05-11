@@ -13,31 +13,22 @@ public class CryptoProject {
         int p, q, d, c, ct;         //P, Q, D, C, Cipher Text Values
         char fL, sL, tL;            //First, Second, Third Letter Variables 
         p = factorP(n);             //Factors N to find P
-        System.out.println("P: " + p);
-        System.out.println("N: " + n);
         q = factorQ(p,n);           //Factors N to find Q
-        System.out.println("Answer for Q: " + q);
         d = multiplicativeInverse(e, p, q); 
-        System.out.println("D = " + d);
+        System.out.println("Enter the block number to decrypt: ");
+        System.out.println("Enter 0 if you want to stop");
         while(stop > 0){
-            System.out.println("Enter the block number to decrypt: ");
-            System.out.println("Enter 0 if you want to stop");
             c = input.nextInt();
             if(c > 0){
               ct = modExponentation(c,d,n);
               fL = firstLetter(ct);
-              System.out.println("The first letter of the block is: " + fL);
               sL = secondLetter(ct);
-              System.out.println("The second letter of the block is: " + sL);
               tL = thirdLetter(ct);
-              System.out.println("The third letter of the block is: " + tL);
-              System.out.println("The three letter string is: " + fL + sL + tL);
+              System.out.println("The string of the three letters is: " + fL + sL + tL);
             }
             else
                 stop = c;
         }
-        int y = 2398 / 676;
-        System.out.println("Answer: " + y);
     }
     
     public static int factorP(int n){
